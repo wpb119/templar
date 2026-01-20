@@ -687,11 +687,11 @@ class Miner(BaseNode, Trainer):
                     "Training complete; waiting for window to be exhausted..."
                 )
                 await self.wait_until_window(step_window + 1)
+                tplr.logger.info("Waiting for 1 second before uploading gradient to avoid before upload checking")
+                await asyncio.sleep(1)
 
             if self.is_master:
                 put_start = tplr.T()
-                tplr.logger.info("Waiting for 1 second before uploading gradient...")
-                await asyncio.sleep(1)
                 await self.comms.put(
                     state_dict=processed_state_dict,
                     uid=str(self.uid),
