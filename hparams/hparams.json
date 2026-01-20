@@ -14,7 +14,7 @@
     "sequence_length": 2048,
     "micro_batch_size": 1,
     "target_batch_size": 1024,
-    "batch_size": 192,
+    "batch_size": 216,
     "inner_steps": 30,
     "outer_learning_rate": 0.4,
     "blocks_per_window": 115,
