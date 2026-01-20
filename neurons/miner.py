@@ -690,6 +690,7 @@ class Miner(BaseNode, Trainer):
 
             if self.is_master:
                 put_start = tplr.T()
+                await asyncio.sleep(1)
                 await self.comms.put(
                     state_dict=processed_state_dict,
                     uid=str(self.uid),
